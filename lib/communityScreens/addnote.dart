@@ -26,17 +26,19 @@ class addnote extends StatelessWidget {
             onPressed: () {
               ref.add({
                 //'title': cName.text,
-                'eName': eName.text,
+                'cName': eName.text,
                 'eDate': eDate.text,
                 'eTime': eTime.text,
                 'eVenue': eVenue.text,
+                'eName': eName.text,
+                'eDesc': eDate.text,
               }).whenComplete(() {
                 Navigator.pushReplacement(
                     context, MaterialPageRoute(builder: (_) => cHome()));
               });
             },
             child: Text(
-              "create event",
+              "save",
             ),
           ),
         ],
@@ -44,12 +46,25 @@ class addnote extends StatelessWidget {
       body: Container(
         child: Column(
           children: [
-            Container(
-              decoration: BoxDecoration(border: Border.all()),
-              child: TextField(
-                controller: eName,
-                decoration: InputDecoration(
-                  hintText: 'Event name',
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(border: Border.all()),
+                child: TextField(
+                  controller: cName,
+                  decoration: InputDecoration(
+                    hintText: 'Community name',
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(border: Border.all()),
+                child: TextField(
+                  controller: eName,
+                  decoration: InputDecoration(
+                    hintText: 'Event Name',
+                  ),
                 ),
               ),
             ),
@@ -64,7 +79,7 @@ class addnote extends StatelessWidget {
                   expands: true,
                   maxLines: null,
                   decoration: InputDecoration(
-                    hintText: 'eDate',
+                    hintText: 'Date',
                   ),
                 ),
               ),
@@ -77,7 +92,7 @@ class addnote extends StatelessWidget {
                   expands: true,
                   maxLines: null,
                   decoration: InputDecoration(
-                    hintText: 'eTime',
+                    hintText: 'Time',
                   ),
                 ),
               ),
@@ -90,7 +105,7 @@ class addnote extends StatelessWidget {
                   expands: true,
                   maxLines: null,
                   decoration: InputDecoration(
-                    hintText: 'e',
+                    hintText: 'Venue',
                   ),
                 ),
               ),

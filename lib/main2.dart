@@ -10,15 +10,15 @@ import 'package:flutter/material.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(MyApp2());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp2 extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState();
+  _MyApp2State createState() => _MyApp2State();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyApp2State extends State<MyApp2> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,34 +26,24 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primaryColor: Colors.blue[900],
       ),
-      home: cHome(),
+      home: Home(),
     );
   }
 }
 
-class cHome extends StatefulWidget {
+class Home extends StatefulWidget {
   @override
-  _cHomeState createState() => _cHomeState();
+  _HomeState createState() => _HomeState();
 }
 
-class _cHomeState extends State<cHome> {
+class _HomeState extends State<Home> {
   final Stream<QuerySnapshot> _usersStream =
       FirebaseFirestore.instance.collection('createevent').snapshots();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (_) => addnote()));
-        },
-        child: Icon(
-          Icons.add,
-        ),
-      ),
-      appBar: AppBar(
-        backgroundColor: Color(0xff484bf2),
-        title: Text('Registred Event'),
+      appBar: AppBar(backgroundColor: Color(0xfffe8378),
+        title: Text('Event Detials'),
       ),
       body: StreamBuilder(
         stream: _usersStream,
@@ -102,13 +92,13 @@ class _cHomeState extends State<cHome> {
                             ),
                           ),
                           title: Text(
-                            snapshot.data!.docChanges[index].doc['eName'],
+                            snapshot.data!.docChanges[index].doc['cName'],
                             style: TextStyle(
                               fontSize: 20,
                             ),
                           ),
                           subtitle: Text(
-                            snapshot.data!.docChanges[index].doc['eDate'],
+                            snapshot.data!.docChanges[index].doc['eName'],
                             style: TextStyle(
                               fontSize: 15,
                             ),

@@ -38,16 +38,16 @@ class _sHomeState extends State<sHome> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Hi!  aaaa',
+                    'Hi!  akhil joy',
                     style: GoogleFonts.poppins(
                         textStyle: const TextStyle(
-                            color: Colors.white,
+                            color: Colors.blueGrey,
                             fontSize: 30,
                             fontWeight: FontWeight.bold)),
                   ),
                   const CircleAvatar(
                     radius: 27,
-                    backgroundImage: AssetImage('assets/logo.png'),
+                    backgroundImage: AssetImage('images/logo.png'),
                   ),
                 ],
               ),

@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:eventmanagement/communityScreens/main1.dart';
+import 'package:eventmanagement/main2.dart';
 import 'package:flutter/material.dart';
 import 'package:eventmanagement/studentScreens/sHome.dart';
 import 'package:eventmanagement/RoundedButton.dart';
@@ -131,7 +133,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     final newUser = await _auth.createUserWithEmailAndPassword(
                         email: semail!, password: spassword!);
 
-                    await _sSignup.collection('signupc').add({
+                    await _sSignup.collection('signups').add({
                       'sname': sname,
                       'phn': sphno,
                       'ktulogin': sktureg,
@@ -140,7 +142,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
                     if (newUser != null) {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => sHome()));
+                          MaterialPageRoute(builder: (context) => MyApp2()));
                     }
 
                     setState(() {

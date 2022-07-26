@@ -1,3 +1,5 @@
+import 'package:eventmanagement/communityScreens/main1.dart';
+import 'package:eventmanagement/main2.dart';
 import 'package:eventmanagement/studentScreens/RegistrationScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -90,7 +92,7 @@ class _sLoginState extends State<sLogin> {
                         email: email!, password: password!);
                     if (newUser != null) {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => sHome()));
+                          MaterialPageRoute(builder: (context) => MyApp2()));
                     } else {}
 
                     setState(() {
